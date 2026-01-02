@@ -20,16 +20,21 @@ import "../styles/global.css";
 	}
 	
 	.nav-container {
-	margin-top: 30%;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	margin-right: 5%;
   	}
 
 	.nav-item {
-    position: relative;
-    padding: 1rem 2rem 0.5rem 2rem;
-    background: var(--background-dark);
-    color: var(--button-text);
+    
+	position: relative;
+    padding: 0.75rem 2rem 0.75rem 2rem;
+    background: var(--background);
+    color: var(--primary-text);
     text-decoration: none;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 0px 0px 10px 10px;
     font-weight: 600;
     font-size: 16px;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -38,11 +43,56 @@ import "../styles/global.css";
     overflow: hidden;
 	}
 
-</style>
+
+	.nav-item::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		z-index: -1;
+	}
+
+	.nav-item:hover {
+		transform: translateY(8px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+		color: white;
+	}
+
+	.nav-item:hover::before {
+		opacity: 1;
+	}
+
+	.nav-item.active {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+	}
+
+	/* Bounce animation */
+	@keyframes bounce {
+		0%, 100% {
+			transform: translateY(+8px);
+		}
+		50% {
+			transform: translateY(+12px);
+		}
+	}
+
+	</style>
 </head>
 
 <body>		
 	<Logo />
+	<nav class="nav-container">
+		<a class="nav-item" href="/projects/">Projects</a>
+		<a class="nav-item" href="/skills/">Skills</a>
+		<a class="nav-item" href="/about/">About me</a>
+	</nav>
 	<div class="two-column">
 			<div class="column-home">
 				<img src="../profile-no-bg.png" alt="Michael Pasimio"/>
@@ -50,10 +100,6 @@ import "../styles/global.css";
 			<div class="column-home">
 					<h1>Michael Pasimio</h1>
 					<p>Learning Designer, Innovator, Educator, Coach</p>
-				<nav class="nav-container">
-					<a class="nav-item" href="/projects/">Projects</a>
-					<a class="nav-item" href="/skills/">Skills</a>
-					<a class="nav-item" href="/about/">About me</a>
 			</div>
 		</div>
 	
