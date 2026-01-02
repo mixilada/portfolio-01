@@ -318,7 +318,7 @@ nav a.active::after {
   column-gap: var(--spacing-lg);
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-sm);
   padding: 0;
   display: flex;
   align-items: flex-end;
@@ -333,7 +333,6 @@ nav a.active::after {
 }
 
 .column-home h1{
-  
   font-family: 'Georgia', serif;
   font-weight: light;
   font-size: 3rem;
@@ -347,7 +346,7 @@ nav a.active::after {
   font-weight: light;
   font-size: 1rem;
   margin: 0;
-  padding: 0;
+  padding-bottom: 30%;
 }
 
 .column-home img {
