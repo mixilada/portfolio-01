@@ -134,7 +134,6 @@ a:hover {
 
 /* Header */
 header {
-  margin-bottom: var(--spacing-md);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -285,23 +284,37 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
+  position: relative;
   padding: var(--spacing-md) 0;
   text-align: center;
   background-color: var(--background-dark);
   max-width: 75%;
-  margin: 0 auto;
+  margin: auto auto var(--spacing-lg) auto;
 }
 
-.hero h1 {
-  margin-bottom: var(--spacing-md);
+.hero h2 {
+  font-family: 'Georgia', serif;
+  color: var(--background);
+  text-align: center;
+}
+
+.hero h3 {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--background);
+  font-size: 1.25rem;
+  font-weight: 550;
+  max-width: 600px;
+  text-align: center;
+  margin: var(--spacing-sm) auto;
 }
 
 .hero p {
-  font-family:'Courier New', Courier, monospace;
+  font-family:'K2D', serif;
   font-size: 1.25rem;
   color: var(--background);
   max-width: 600px;
-  margin: var(--spacing-sm) auto;
+  text-align: left;
+  margin: var(--spacing-sm) auto auto 5%;
 }
 
 .rectangle {
@@ -313,6 +326,22 @@ nav a.active::after {
   margin-bottom: var(--spacing-sm);
 }
 
+/* Parallax Section */
+.parallax {
+  /* The image used */
+  background-image: url("parallax.jpg");
+
+  /* Set a specific height */
+  min-height: 650px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: var(--spacing-xl) 0;
+}
+
 /* Container */
 .container {
   display: block;
@@ -322,7 +351,8 @@ nav a.active::after {
 }
 
 .container-narrow {
-  max-width: 800px;
+  height: 25px;
+  background-color: var(--background-dark);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
@@ -365,6 +395,7 @@ nav a.active::after {
 
 .column-home img {
 width: 100%;
+margin-bottom: -0.5px;
 }
 
 .three-column {
@@ -375,7 +406,7 @@ width: 100%;
   gap: var(--spacing-lg);
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: var(--spacing-xl);
+  margin-top: 0;
   padding: 0;
   text-align: center;
 }
@@ -401,14 +432,21 @@ width: 100%;
     flex-direction: column;
   }
 
+  .two-column .column-home img {
+    width: 70%;
+    margin: 0;
+    display: none;
+  }
+
+  .two-column .column-home h1, p {
+    padding: var(--spacing-sm);
+  }
+
   .three-column {
     flex-direction: column;
   }
-
-  .column-home img {
-    width: 50%;
-    margin: 0;
-    display: block;
+  .column-project {
+    width: 80%;
   }
 
 }

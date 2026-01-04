@@ -1,6 +1,5 @@
 ---
 import Header from "../components/Header.astro"
-import Logo from "../components/Logo.astro"
 import "../styles/global.css";
 ---
 
@@ -15,7 +14,6 @@ import "../styles/global.css";
 </head>
 
 <body>		
-	<Logo />
 	<Header />
 	<div class="two-column">
 			<div class="column-home">
@@ -26,16 +24,18 @@ import "../styles/global.css";
 					<p>Learning Designer, Innovator, Educator, Coach</p>
 			</div>
 		</div>
-	
-	<section class ="hero">
-		<p>Championing mindfulness, liberal arts education, and economic sovereignty for all.</p>
-	</section>
+	<div class ="container-narrow">
+	</div>
 
-	<!--Empty container for spacing 
-	and future content, like a graphic 
-	-->
+	<div class = "parallax">
+		<div class ="hero">
+			<h3>Championing mindfulness, liberal arts education, and economic sovereignty for all.</h3>
+		</div>
 
-	<div class="container">
+		<div class ="hero">
+			<h2>About Me</h2>
+			<p>Short 50-word bio</p>
+		</div>
 	</div>
 	
 	<!--Project Areas Section-->
