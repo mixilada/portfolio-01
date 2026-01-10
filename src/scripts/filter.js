@@ -1,45 +1,71 @@
-/*show all items*/
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
+// projects-filter.js - Standalone filtering logic for Astro
 
-/* Show filtered elements */
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
-
-/* Hide elements that are not selected */
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+export function initProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectCount = document.getElementById('projectCount');
+    
+    // Check if elements exist
+    if (!filterButtons.length) {
+        console.error('No filter buttons found');
+        return;
     }
-  }
-  element.className = arr1.join(" ");
+    
+    if (!projectCards.length) {
+        console.error('No project cards found');
+        return;
+    }
+    
+    console.log(`Found ${filterButtons.length} buttons and ${projectCards.length} cards`);
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            console.log('Button clicked:', this.dataset.filter);
+            
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get filter value
+            const filterValue = this.dataset.filter;
+            
+            // Filter projects
+            let visibleCount = 0;
+            
+            projectCards.forEach((card, index) => {
+                const cardTags = card.dataset.tags || '';
+                console.log(`Card ${index}: tags="${cardTags}", filter="${filterValue}"`);
+                
+                if (filterValue === 'all' || cardTags.includes(filterValue)) {
+                    // Show card with animation
+                    card.classList.remove('hidden');
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    visibleCount++;
+                } else {
+                    // Hide card
+                    card.classList.add('hidden');
+                }
+            });
+
+            console.log(`Visible cards: ${visibleCount}`);
+
+            // Update count
+            if (projectCount) {
+                projectCount.textContent = `${visibleCount} Project${visibleCount !== 1 ? 's' : ''}`;
+            }
+        });
+    });
+    
+    console.log('Project filters initialized successfully');
 }
 
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
+// Auto-initialize if DOM is ready
+if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProjectFilters);
+    } else {
+        initProjectFilters();
+    }
 }

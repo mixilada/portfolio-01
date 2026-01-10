@@ -5,9 +5,9 @@
     }
 
     :root {
-        --primary: #1a1a1a;
+        --primary: #131D28;
         --secondary: #f4f4f4;
-        --accent: #ff6b35;
+        --accent: #C59570;
         --text: #2a2a2a;
         --border: #d4d4d4;
     }
@@ -17,16 +17,9 @@
         margin: 0 auto;
         padding: 60px 40px;
         font-family: 'Work Sans', sans-serif;
-        background: var(--secondary);
+        background: none;
         color: var(--text);
         line-height: 1.6;
-    }
-
-    header {
-        margin-bottom: 80px;
-        border-bottom: 3px solid var(--primary);
-        padding-bottom: 40px;
-        position: relative;
     }
 
     h1 {
@@ -37,6 +30,7 @@
         letter-spacing: -0.03em;
         color: var(--primary);
         margin-bottom: 20px;
+        text-align: center;
         text-transform: uppercase;
     }
 
@@ -70,6 +64,7 @@
     .filter-btn {
         padding: 12px 28px;
         border: 2px solid var(--primary);
+        border-radius: 5px;
         background: transparent;
         color: var(--primary);
         font-family: 'Work Sans', sans-serif;
@@ -119,6 +114,7 @@
     .project-card {
         background: white;
         border: 2px solid var(--primary);
+        border-radius: 5px;
         padding: 40px;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
