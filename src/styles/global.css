@@ -292,7 +292,7 @@ nav a.active::after {
   position: relative;
   padding: var(--spacing-md) 0;
   text-align: center;
-  background-color: var(--background-dark);
+  background-color: var(--background-darkest);
   max-width: 90%;
   margin: 12rem auto var(--spacing-lg) auto;
 }
@@ -343,7 +343,7 @@ nav a.active::after {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: var(--spacing-xl) 0;
+  padding: 0;
 }
 
 /* Container */
@@ -351,24 +351,24 @@ nav a.active::after {
   display: block;
   align-items: baseline;/* vertical centering */
   justify-content: center; /* horizontal centering (optional) */
-  height: 720px; /* needs a height */
 }
 
 .container-narrow {
-  height: 25px;
+  height: 150px;
   background-color: var(--background-darkest);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  opacity: 0.8;
+  margin: 0;
+  padding: 0;
 }
 
 .two-column {
   column-count: 2;
-  column-gap: var(--spacing-lg);
+  column-gap: none;
   margin: auto;
   padding: 0;
   display: flex;
   align-items: flex-end;
-  height: clamp(300px 500px 700px);
+  height: clamp(300px 400px 500px);
   width: 80%;
 }
 
@@ -390,7 +390,7 @@ nav a.active::after {
 
 .column-home img {
 width: 100%;
-height: clamp(30% 50% 60%);
+height: clamp(30% 40% 50%);
 margin-bottom: -0.5px;
 justify-content: right;
 }

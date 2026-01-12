@@ -15,7 +15,7 @@
     .container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 60px 40px;
+        padding: 100px 40px 20px;
         font-family: 'Work Sans', sans-serif;
         background: none;
         color: var(--text);
@@ -43,7 +43,8 @@
     }
 
     .filter-section {
-        margin-bottom: 60px;
+        margin-top: 40px;
+        margin-bottom: 0px;
     }
 
     .filter-label {
@@ -103,6 +104,13 @@
 
     .filter-btn.active {
         background: var(--primary);
+    }
+
+    .container-project{
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0px 40px 50px;
+        background: none;
     }
 
     .projects-grid {
