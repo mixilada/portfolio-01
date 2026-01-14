@@ -403,7 +403,7 @@ justify-content: right;
   gap: var(--spacing-sm);
   max-width: 90%;
   margin: auto;
-  padding: 0;
+  padding: 50px;
   text-align: center;
 }
 
@@ -453,7 +453,7 @@ section {
 
 .section-title {
   text-align: center;
-  margin: var(--spacing-sm);
+  margin: var(--spacing-xl) auto;
 }
 
 .section-title::after {
